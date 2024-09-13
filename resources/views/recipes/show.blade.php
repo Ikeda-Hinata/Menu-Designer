@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+<link rel="stylesheet" href="{{ asset('css/recipeShow.css')}}">
+<div class ="recipeShow">
 <h1>保存できました</h1>
     <h2>{{$newRecipe->title}}</h2>
     <img src="{{$newRecipe->image}}" alt="{{$newRecipe->title}}">
@@ -19,7 +21,7 @@
             @endforeach
         </div>
     </div>
-    
+</div>
     <!-- 手順を書く -->
     <div id="instructions">
         @foreach($newInstruction as $instruction)

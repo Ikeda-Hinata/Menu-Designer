@@ -76,18 +76,19 @@ class MealsController extends Controller
         return view('meals.show',compact('mealData','menu'));
         
     }
-    public function menuList(){
-        $paginatedMenus = Meals::where('user_id', auth()->id())
-        ->with('foods')
+    public function menuList()
+{
+    $userId = auth()->id();
+    // ページネーションを適用してメニューを取得
+    $paginatedMenus = Menu::where('user_id', $userId)
         ->orderBy('created_at', 'desc')
-        ->paginate(21);
+        ->paginate(9); // 1ページあたり10件のメニューを表示
 
-        $menu = Menu::where('user_id', auth()->id())->latest()->first();
-        
-        $userName = auth()->user()->name;
-        
-    return view('meals.menuList', compact('paginatedMenus','menu','userName'));
-    }
+    $userName = auth()->user()->name;
+
+    return view('meals.menuList', compact('paginatedMenus', 'userName'));
+}
+
     public function menuDetail($id){
         $userName = auth()->user()->name;
         $menu = Menu::findOrFail($id);

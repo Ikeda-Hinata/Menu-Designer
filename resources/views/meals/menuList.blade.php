@@ -1,17 +1,28 @@
 @extends('layouts.app')
 
 @section('content')
-    @if(empty($menu->menuTitle))
-        <h1>献立はありません。</h1>
+<link rel="stylesheet" href="{{ asset('css/menuList.css')}}">
+    <h1>Menu Gallery</h1>
+
+    @if ($paginatedMenus->isEmpty())
+        <p>献立がありません。</p>
     @else
-        <h1>作成者:{{ $userName }}</h1>
-        <h1>タイトル:{{ $menu->menuTitle }}</h1>
-        <h1>概要:{{ $menu->overview }}</h1>
-        
-        <a href="{{ route('meals.menuDetail', ['id' => $menu->id]) }}"><button>詳細を見る</button></a>
+        <div class="menu-cards">
+    @foreach ($paginatedMenus as $menu)
+        <div class="menu-card">
+            <h2>{{ $menu->menuTitle }}</h2>
+            <p>{{ $menu->overview }}</p>
+            <a href="{{ route('meals.menuDetail', ['id' => $menu->id]) }}">
+                <button>詳細を見る</button>
+            </a>
+        </div>
+    @endforeach
+        </div>
+
+
+        <!-- ページネーション -->
+        <div class="pagination">
+            {{ $paginatedMenus->links() }}
+        </div>
     @endif
-    <!-- ページネーション -->
-    <div class="pagination">
-        {{ $paginatedMenus->links() }}
-    </div>
 @endsection

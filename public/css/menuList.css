@@ -1,0 +1,45 @@
+.menu-list {
+    justify-content: center;
+}
+.menu-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.menu-card {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    width: calc(33.333% - 40px); /* 3列表示の例 */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.menu-card:hover {
+    transform: scale(1.05);
+}
+
+.menu-card h2 {
+    font-size: 18px;
+    margin: 0 0 10px;
+}
+
+.menu-card p {
+    font-size: 14px;
+}
+
+.menu-card button {
+    background-color: #ff5722;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.menu-card button:hover {
+    background-color: #e64a19;
+}

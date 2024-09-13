@@ -3,7 +3,7 @@
 
 <link rel="stylesheet" href="{{ asset('css/recipeList.css')}}">
 
-<h1>Recipe List</h1>
+<h1>Recipe Library</h1>
 <div class="recipe-card-group">
     @foreach($recipes as $recipe)
     <div class="recipe-card">

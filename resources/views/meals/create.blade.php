@@ -2,7 +2,7 @@
 
 @section('content')
 
-<link rel="stylesheet" href="{{ asset('css/recipeCreate.css')}}">
+<link rel="stylesheet" href="{{ asset('css/menuCreate.css')}}">
 
 <div class="form-container">
     <form action="{{ route('meals.store') }}" method="POST">
@@ -29,8 +29,8 @@
                         <td>{{ $meal }}</td>
                         <td>
                             <input type="text" name="meals[{{ $i }}][{{ $key }}][]" placeholder="{{ $meal }}食">
-                            <button class="add" type="button">add</button>
-                            <button class="remove" type="button">remove</button>
+                            <button class="add" type="button">アイテムを追加</button>
+                            <button class="remove" type="button">アイテムを削除</button>
                         </td>
                     </tr>
                     @endforeach

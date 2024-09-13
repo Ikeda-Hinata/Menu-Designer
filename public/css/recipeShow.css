@@ -1,0 +1,113 @@
+/* 全体のスタイル */
+.recipeShow {
+    max-width: 1000px;
+    margin: 80px auto; /* ヘッダーの下に余白を追加 */
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* メッセージのスタイル */
+.recipeShow h1 {
+    font-size: 24px;
+    color: #d35400;
+    margin-bottom: 20px;
+}
+
+.recipeShow h2 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* 画像のスタイル */
+.recipeShow img {
+    width: 300px; /* 固定幅 */
+    height: 200px; /* 固定高さ */
+    object-fit: cover; /* 画像が枠に収まるようにカバー */
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+/* 説明のスタイル */
+.recipeShow p {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* 材料セクションのスタイル */
+.ingredients-information {
+    margin-bottom: 20px;
+}
+
+.ingredients-information h1 {
+    font-size: 20px;
+    color: #d35400;
+    margin-bottom: 10px;
+}
+
+.ingredients-information p {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.ingredients-inputs {
+    margin-bottom: 10px;
+}
+
+.ingredients-inputs p {
+    font-size: 16px;
+    color: #333;
+}
+
+/* 手順セクションのスタイル */
+#instructions {
+    margin-bottom: 20px;
+}
+
+.instructions-inputs {
+    margin-bottom: 20px;
+}
+
+.instructions-inputs p {
+    font-size: 16px;
+    color: #333;
+}
+
+.instructions-inputs img {
+    width: 300px; /* 固定幅 */
+    height: 200px; /* 固定高さ */
+    object-fit: cover; /* 画像が枠に収まるようにカバー */
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+/* レスポンシブ対応（小さい画面での調整） */
+@media (max-width: 768px) {
+    .recipeShow h1 {
+        font-size: 20px;
+    }
+
+    .recipeShow h2 {
+        font-size: 18px;
+    }
+
+    .recipeShow p {
+        font-size: 14px;
+    }
+
+    .ingredients-information h1 {
+        font-size: 18px;
+    }
+
+    .ingredients-information p {
+        font-size: 14px;
+    }
+
+    .instructions-inputs p {
+        font-size: 14px;
+    }
+}

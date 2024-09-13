@@ -1,0 +1,110 @@
+/* id="content" 用のスタイル */
+#content {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* タイトルのスタイル */
+#content h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #d35400;
+}
+
+/* サブタイトルのスタイル */
+#content h2 {
+    font-size: 18px;
+    margin: 20px 0 10px;
+    color: #d35400;
+}
+
+/* 入力フィールドのスタイル */
+#content input[type="text"],
+#content input[type="number"],
+#content input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: #fff4e0;
+    color: #333;
+}
+
+#content input[type="text"]::placeholder,
+#content input[type="number"]::placeholder {
+    color: #d35400; /* プレースホルダーテキストの色 */
+}
+
+/* ボタンのスタイル */
+#content button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    margin: 10px 5px;
+}
+
+#content button:hover {
+    background-color: #e07b32;
+}
+
+/* 材料セクションのスタイル */
+#content .ingredients-information {
+    margin: 20px 0;
+}
+
+#content .ingredients-information input[type="number"] {
+    width: calc(50% - 10px);
+    display: inline-block;
+}
+
+#content .ingredients-information p {
+    display: inline-block;
+    margin: 0;
+    padding-left: 10px;
+}
+
+/* 材料と手順の追加・削除ボタンのスタイル */
+#content #ingredients-add,
+#content #ingredients-remove,
+#content #instructions-add,
+#content #instructions-remove {
+    background-color: #ff8c42;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    margin: 5px;
+}
+
+#content #ingredients-add:hover,
+#content #ingredients-remove:hover,
+#content #instructions-add:hover,
+#content #instructions-remove:hover {
+    background-color: #e07b32;
+}
+
+/* 手順セクションのスタイル */
+#content #instructions {
+    margin: 20px 0;
+}
+
+#content #instructions input[type="text"] {
+    width: calc(100% - 100px);
+    display: inline-block;
+}
+
+#content #instructions input[type="file"] {
+    display: inline-block;
+    width: calc(100% - 20px);
+}

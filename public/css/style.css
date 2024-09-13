@@ -1,0 +1,153 @@
+* {
+   box-sizing: border-box;
+}
+/* 基本設定 */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", メイリオ, Meiryo, "ＭＳ Ｐゴシック", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-color: #fffaf0;
+    color: #333;
+}
+header {
+   padding: 30px 4% 10px;
+   position: fixed;
+   top: 0;
+   width: 100%;
+   background-color: #fff;
+   display: flex;
+   align-items: center;
+}
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 200%;
+}
+a {	
+   text-decoration: none;
+   color: #4b4b4b;
+}
+nav {
+   margin: 0 0 0 auto;
+}
+ul {
+   list-style: none;
+   margin: 0;
+   display: flex;
+}
+li {
+   margin: 0 0 0 15px;
+   font-size: 14px;
+   list-style: none
+}
+form {
+    align-items: center
+}
+main {
+   padding-top: 120px;
+}
+
+
+footer {
+    text-align: center; /* フッター内のテキストを中央に配置 */
+    padding: 20px 0; /* 上下のパディング */
+    background-color: #fff; /* フッターの背景色 */
+    border-top: 1px solid #ddd; /* 上部に境界線を追加（オプション） */
+}
+
+#footer {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center; /* メニューアイテムを中央に配置 */
+}
+
+#footer li {
+    margin: 0 15px; /* メニューアイテムの左右のマージン */
+}
+
+#footer a {
+    text-decoration: none;
+    color: #4b4b4b; /* リンクの色 */
+    font-size: 14px; /* リンクのフォントサイズ */
+}
+
+footer p {
+    margin: 10px 0 0; /* 上部マージンを設定し、下部マージンをリセット */
+    font-size: 14px; /* フッターのフォントサイズ */
+    color: #4b4b4b; /* フッターのテキストカラー */
+}
+
+
+.pagination {
+    justify-content: center;
+    padding: 20px 0;
+}
+
+/* ページネーションのリンク */
+.pagination a,
+.pagination span {
+    display: inline-block;
+    padding: 8px 16px;
+    margin: 0 4px;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #333; /* テキストの色 */
+    background-color: #f8f9fa; /* 背景色 */
+    border: 1px solid #ddd; /* 枠線の色 */
+}
+
+/* アクティブなページのスタイル */
+.pagination .active span {
+    color: #fff;
+    background-color: #007bff; /* アクティブなページの背景色 */
+    border-color: #007bff; /* アクティブなページの枠線の色 */
+}
+
+/* ホバー時のスタイル */
+.pagination a:hover {
+    background-color: #e2e6ea; /* ホバー時の背景色 */
+    border-color: #adb5bd; /* ホバー時の枠線の色 */
+}
+
+.right {
+   display:flex;
+   justify-content:center;
+}
+
+#title {
+   font-size:150%;
+}
+
+
+/* ボタンスタイル */
+button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: #ff8c42;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+button:hover {
+    background-color: #e07b32;
+}
+
+label {
+    font-size: 14px;
+    color: #d35400;
+}
+
+/* フォーム全体のボタン */
+button[type="submit"] {
+    background-color: #ff5722;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+button[type="submit"]:hover {
+    background-color: #e64a19;
+}

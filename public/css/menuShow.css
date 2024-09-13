@@ -1,0 +1,50 @@
+/* 全体のスタイル */
+.menuShow {
+    max-width: 1000px;
+    margin: 80px auto; /* ヘッダーの下に余白を追加 */
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* メニュータイトルと概要のスタイル */
+.menuShow h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #d35400;
+}
+
+/* テーブル全体のスタイル */
+.menuShow table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+/* テーブルヘッダーのスタイル */
+.menuShow th {
+    background-color: #ffe0b2;
+    color: #d35400;
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+    font-weight: bold;
+}
+
+/* テーブルデータのスタイル */
+.menuShow td {
+    padding: 12px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+/* レスポンシブ対応（小さい画面での調整） */
+@media (max-width: 768px) {
+    .menuShow table {
+        font-size: 14px;
+    }
+
+    .menuShow th, .menuShow td {
+        padding: 8px;
+    }
+}

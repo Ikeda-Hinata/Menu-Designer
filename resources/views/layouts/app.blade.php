@@ -11,6 +11,7 @@
 
     </head>
     <body>
+        
     <!--ヘッダー-->
     <header>
         <h1 id="title">
@@ -19,7 +20,7 @@
         <nav>
             @csrf
             <form action="{{ route('recipes.search')}}" method="GET">
-                <input type="text" name="search" value="{{request('search')}}" placeholder="料理名、カテゴリ">
+                <input id="search" type="text" name="search" value="{{request('search')}}" placeholder="料理名、カテゴリ">
                 <button type="submit">検索</button>
             </form>
             <ul>

@@ -1,7 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-<form action="{{route('recipes.store')}}" method="POST" enctype="multipart/form-data">
+
+<link rel="stylesheet" href="{{ asset('css/recipeCreate.css')}}">
+
+<form id="content" action="{{route('recipes.store')}}" method="POST" enctype="multipart/form-data">
     @csrf
     <h1>レシピの登録</h1>
     <h2>Title</h2>

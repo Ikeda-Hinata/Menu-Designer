@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-
-
+<link rel="stylesheet" href="{{ asset('css/menuShow.css')}}">
+<div class ="menuShow">
     <h1>{{ $menu->menuTitle }}</h1>
     <h1>{{ $menu->overview }}</h1>
     <table>
@@ -27,6 +27,6 @@
             @endforeach
         </tbody>
     </table>
-
+</div>
 
 @endsection

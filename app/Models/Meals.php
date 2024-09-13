@@ -11,9 +11,18 @@ class Meals extends Model
     
    protected $fillable=[
         'user_id',
-        'day',
+        'day_of_week',
         'morning',
         'afternoon',
         'evening',
+        'recipe_id',//fk
         ];
+        
+    public function recipes(){
+        return $this->belongsToMany(Recipes::class,'M-Rs');
+    }
+     public function foods()
+    {
+        return $this->hasMany(Food::class, 'meal_id');
+    }
 }

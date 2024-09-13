@@ -13,14 +13,14 @@
     <body>
     <!--ヘッダー-->
     <header>
-        <h1>
+        <h1 id="title">
             <a href="/">Menu Designer</a>
         </h1>
         <nav>
-            <form action="#" method="get">
-                @csrf
-                <input type="search" name="search" placeholder="献立、料理名、食材名">
-                <input type="submit" name="submit" value="検索">
+            @csrf
+            <form action="{{ route('recipes.search')}}" method="GET">
+                <input type="text" name="search" value="{{request('search')}}" placeholder="料理名、カテゴリ">
+                <button type="submit">検索</button>
             </form>
             <ul>
                 <li><a href="{{ route('login') }}">Login</a></li>
@@ -34,21 +34,15 @@
     </main>
     <!--フッター-->
     <footer>
-        <p>SERVICE</p>
-        <ul>
-            <li><a href="{{route('meals.create')}}">献立作成</a></li>
-            <li><a href="#">献立検索</a></li>
-            <li><a href="{{route('recipes.create')}}">レシピ作成 </a></li>
-            <li><a href="#">レシピ検索</a></li>
+        <h2>
+        <ul id="footer">
+            <li><a href="{{route('meals.create')}}">Menu Planning</a></li>
+            <li><a href="{{route('meals.menuList')}}">Menu Gallery</a></li>
+            <li><a href="{{route('recipes.create')}}">Recipe Creater </a></li>
+            <li><a href="{{route('recipes.recipeList')}}">Recipe Library</a></li>
         </ul>
-        <p>INFORMATION</p>
-        <ul>
-            <li><a href="#">お知らせ</a></li>
-            <li><a href="#">お知らせ</a></li>
-            <li><a href="#">お知らせ</a></li>
-            <li><a href="#">お知らせ</a></li>
-        </ul>
-        <p>Copyright 2024 Hinata</p>
+        </h2>
+        <p id="right">© 2024 Hinata All Rights Reserved</p>
     </footer>
     </body>
 </html>

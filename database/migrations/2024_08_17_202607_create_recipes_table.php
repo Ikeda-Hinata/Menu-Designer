@@ -15,11 +15,11 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->string('image')->nullable();
-            $table->string('title');
+            $table->string('title')->nullable();
+            $table->tinyInteger('number')->nullable();
             $table->text('description')->nullable();
-            $table->text('ingredients');
-            $table->text('instruction')->nullable();
             $table->timestamp('date')->nullable();
+            $table->string('category')->nullable();
             $table->timestamps();
         });
     }

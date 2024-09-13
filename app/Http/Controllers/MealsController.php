@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Meals;
+use App\Models\Food;
+use App\Models\Menu;
 use Illuminate\Http\Request;
 
 class MealsController extends Controller
@@ -17,28 +19,79 @@ class MealsController extends Controller
     }
 
 
-    public function store(Request $request, Meals $meals){
-        $meals = $request->input('meals');//空のmealインスタンスにmealsというキーを持つものを入れる
-        $daysOfWeek = ['月', '火', '水', '木', '金', '土', '日'];
-    
-        // meal 配列をループして、それぞれをデータベースに保存
-        foreach ($meals as $dayIndex => $meal) {//morning,afternoon,eveningを繰り返し処理
-            foreach ($meal as $meal_time => $title) {
-                // 新しい Meal インスタンスを作成
-                $newMeal = new Meals();
-    
-                // 曜日を取得
-                $day = $daysOfWeek[$dayIndex];
-               
-                // 各要素をモデルのプロパティに割り当てる
-                $newMeal->meal_time = $meal_time;  // "morning", "afternoon", "evening"
-                $newMeal->day_of_week = $day;              // "月", "火", "水", ...
-                $newMeal->user_id = auth()->id();  // 現在のユーザーのIDを保存
-    
-                // データベースに保存
-                $newMeal->save();
+    public function store(Request $request)
+{
+
+    $user_id = auth()->id();
+
+    // メニューを先に保存
+    $menu = new Menu();
+    $menu->user_id = $user_id;
+    $menu->menuTitle = $request->input('menuTitle');
+    $menu->overview = $request->input('overview');
+    $menu->is_shared = $request->input('is_shared');
+    $menu->save();
+
+    // meal の保存処理
+    $meals = $request->input('meals');
+    $dayOfWeekIni = ['月', '火', '水', '木', '金', '土', '日'];
+
+    foreach ($meals as $dayIndex => $meal) {
+        $day = $dayOfWeekIni[$dayIndex];
+
+        foreach ($meal as $meal_time => $titles) {
+            $meal = new Meals();
+            $meal->user_id = $user_id;
+            $meal->menu_id = $menu->id;  // ここで関連する menu_id を設定
+            $meal->day_of_week = $day;
+            $meal->meal_time = $meal_time;
+            $meal->save();
+
+            foreach ($titles as $title) {
+                $food = new Food();
+                $food->meal_id = $meal->id;
+                $food->title = $title;
+                $food->save();
             }
         }
-        return redirect()->back()->with('success', '保存に成功しました.');
     }
+
+    return redirect()->route('meals.show');
+}
+
+    public function show(){
+        $mealData = Meals::where('user_id', auth()->id())//現在認証されているユーザーのIDでMealsモデルのデータを取得
+        ->with('foods')
+        ->orderBy('created_at', 'desc')
+        ->get()
+        ->groupBy(['day_of_week', 'meal_time']) // 曜日と食事時間でグループ化
+        ->map(function ($mealsByTime) {
+            return $mealsByTime->map(function ($meals) {
+                return $meals->first(); // 各曜日と食事時間の最新の献立を取得
+            });
+        })
+        ->flatten(); // コレクションをフラットに変換
+        
+        $menu = Menu::where('user_id', auth()->id())->latest()->first();
+        return view('meals.show',compact('mealData','menu'));
+        
+    }
+    public function menuList(){
+        $paginatedMenus = Meals::where('user_id', auth()->id())
+        ->with('foods')
+        ->orderBy('created_at', 'desc')
+        ->paginate(21);
+
+        $menu = Menu::where('user_id', auth()->id())->latest()->first();
+        
+        $userName = auth()->user()->name;
+        
+    return view('meals.menuList', compact('paginatedMenus','menu','userName'));
+    }
+    public function menuDetail($id){
+        $userName = auth()->user()->name;
+        $menu = Menu::findOrFail($id);
+        $paginatedMenus = Meals::where('menu_id', $id)->with('foods')->paginate(21);
+        return view('meals.menuDetail', compact('userName', 'menu', 'paginatedMenus'));
+}
 }

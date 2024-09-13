@@ -14,18 +14,6 @@ class RecipesSeeder extends Seeder
      */
     public function run(): void
     {
-        $imagePath = 'images/チャーハン.jpg';
-        
-        DB::table('recipes')->insert(
-            [   'user_id' => 1,
-                'image' => $imagePath,
-                'title' => 'チャーハン',
-                'description'=> 'test',
-                'ingredients' => '肉',
-                'instruction' => '油をひく',
-                'date' => now(),
-                'created_at' => new DateTime(),
-                'updated_at' => new DateTime(),
-        ]);
+      
     }
 }

@@ -76,16 +76,23 @@ class MealsController extends Controller
     }
 
     public function menuList()
-    {
-        $userId = auth()->id();
-        $paginatedMenus = Menu::where('user_id', $userId)
-            ->orderBy('created_at', 'desc')
-            ->paginate(9);
+{
+    $userId = auth()->id();
 
+    $paginatedMenus = Menu::where('user_id', $userId)
+        ->orderBy('created_at', 'desc')
+        ->paginate(9);
+
+    // ログインしているか確認
+    if (auth()->check()) {
         $userName = auth()->user()->name;
-
-        return view('meals.menuList', compact('paginatedMenus', 'userName'));
+    } else {
+        $userName = 'ゲスト'; // または適当なデフォルト名
     }
+
+    return view('meals.menuList', compact('paginatedMenus', 'userName'));
+}
+
 
     public function menuDetail($id)
     {
